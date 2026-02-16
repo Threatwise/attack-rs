@@ -12,12 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Checkout stix-rs dependency
-        uses: actions/checkout@v4
-        with:
-          repository: Threatwise/stix-rs
-          path: ../stix-rs
-
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
