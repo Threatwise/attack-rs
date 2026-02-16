@@ -19,9 +19,7 @@ jobs:
           path: ../stix-rs
 
       - name: Install Rust toolchain
-        uses: actions/setup-rust@v1
-        with:
-          rust-version: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Install rustfmt & clippy
         run: |

@@ -18,9 +18,7 @@ jobs:
           path: ../stix-rs
 
       - name: Install Rust
-        uses: actions/setup-rust@v1
-        with:
-          rust-version: stable
+        uses: dtolnay/rust-toolchain@stable
 
       - name: Run tests
         run: cargo test --workspace --all-features
