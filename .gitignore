@@ -1,0 +1,24 @@
+# Rust
+/target
+Cargo.lock
+
+# ATT&CK Data
+*.json
+enterprise-attack.json
+mobile-attack.json
+ics-attack.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gemini artifacts
+.gemini/
+.claude/

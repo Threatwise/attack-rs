@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout stix-rs dependency
+        uses: actions/checkout@v4
+        with:
+          repository: Threatwise/stix-rs
+          path: ../stix-rs
+
+      - name: Install Rust toolchain
+        uses: actions/setup-rust@v1
+        with:
+          rust-version: stable
+
+      - name: Install rustfmt & clippy
+        run: |
+          rustup component add rustfmt || true
+          rustup component add clippy || true
+
+      - name: Format check
+        run: cargo fmt --all -- --check
+
+      - name: Lint (clippy)
+        run: cargo clippy --workspace --all-targets --all-features -- -D warnings
+
+      - name: Run tests
+        run: cargo test --workspace --all-features
+
+      - name: Crate dry-run
+        run: cargo publish --dry-run

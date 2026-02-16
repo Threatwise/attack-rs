@@ -1,0 +1,26 @@
+[package]
+name = "attack-rs"
+version = "0.1.0"
+edition = "2024"
+authors = ["Threatwise"]
+description = "MITRE ATT&CK Framework semantic layer - strongly-typed, graph-based interface for threat intelligence"
+homepage = "https://github.com/Threatwise/attack-rs"
+license = "MIT"
+repository = "https://github.com/Threatwise/attack-rs"
+documentation = "https://docs.rs/attack-rs"
+keywords = ["attack", "mitre", "threat-intelligence", "cybersecurity", "stix"]
+categories = ["data-structures", "encoding", "parser-implementations"]
+readme = "README.md"
+
+[lib]
+name = "attack"
+path = "src/lib.rs"
+
+[dependencies]
+stix-rs = { path = "../stix-rs" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+clap = { version = "4.0", features = ["derive"] }
+thiserror = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
