@@ -1,5 +1,4 @@
 use attack::{AttackStore, AttackObject};
-use stix_rs::StixObject;
 use std::sync::Once;
 
 static INIT: Once = Once::new();

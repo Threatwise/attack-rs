@@ -300,6 +300,14 @@ impl AttackStore {
 
     pub fn find_technique_by_name(&self, name: &str) -> Option<&Technique> {
         let name_lower = name.to_lowercase();
+
+        // First try exact match
+        if let Some(t) = self.techniques.values()
+            .find(|t| t.name.to_lowercase() == name_lower) {
+            return Some(t);
+        }
+
+        // Fall back to partial match
         self.techniques.values()
             .find(|t| t.name.to_lowercase().contains(&name_lower))
     }

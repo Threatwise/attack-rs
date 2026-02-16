@@ -74,6 +74,7 @@ fn test_group_extended_fields() {
       }]
     }"#;
 
+    std::fs::create_dir_all("target/test-data").unwrap();
     std::fs::write("target/test-data/group-fields.json", json).unwrap();
     let store = AttackStore::from_file("target/test-data/group-fields.json").unwrap();
     let group = store.get_group("intrusion-set--test").unwrap();
@@ -107,6 +108,7 @@ fn test_campaign_extended_fields() {
       }]
     }"#;
 
+    std::fs::create_dir_all("target/test-data").unwrap();
     std::fs::write("target/test-data/campaign-fields.json", json).unwrap();
     let store = AttackStore::from_file("target/test-data/campaign-fields.json").unwrap();
     let campaign = store.get_campaign("campaign--test").unwrap();
@@ -140,6 +142,7 @@ fn test_data_source_extended_fields() {
       }]
     }"#;
 
+    std::fs::create_dir_all("target/test-data").unwrap();
     std::fs::write("target/test-data/datasource-fields.json", json).unwrap();
     let store = AttackStore::from_file("target/test-data/datasource-fields.json").unwrap();
     let ds = store.get_data_source("x-mitre-data-source--test").unwrap();
@@ -226,6 +229,7 @@ fn test_all_objects_have_version_field() {
       ]
     }"#;
 
+    std::fs::create_dir_all("target/test-data").unwrap();
     std::fs::write("target/test-data/all-versions.json", json).unwrap();
     let store = AttackStore::from_file("target/test-data/all-versions.json").unwrap();
 
